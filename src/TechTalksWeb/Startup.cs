@@ -56,7 +56,7 @@ namespace TechTalksWeb
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=TechTalk}/{action=Index}/{id?}");
             });
         }
     }

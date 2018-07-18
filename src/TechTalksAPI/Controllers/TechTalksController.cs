@@ -4,6 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TechTalksAPI.Model;
+using TechTalksModel.DTO;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -42,12 +43,21 @@ namespace TechTalksAPI.Controllers
 
         // POST api/TechTalks
         [HttpPost]
-        public IActionResult Create([FromBody]TechTalk techTalk)
+        public IActionResult Create([FromBody]TechTalkDTO techTalkDto)
         {
-            if (techTalk == null)
+            if (techTalkDto == null)
             {
                 return BadRequest();
             }
+
+            TechTalk techTalk = new TechTalk
+            {
+                TechTalkName = techTalkDto.TechTalkName,
+                CategoryId = techTalkDto.CategoryId,
+                Category = _context.Categories.FirstOrDefault(x => x.Id == techTalkDto.CategoryId),
+                LevelId = techTalkDto.LevelId,
+                Level = _context.Levels.FirstOrDefault(x => x.Id == techTalkDto.LevelId)
+            };
 
             Console.WriteLine("Saving Tech talk to database.");
 

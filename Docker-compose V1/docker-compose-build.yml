@@ -1,11 +1,21 @@
 version: '3'
 
 services:
-  sql.data:
+  sql.data-client:
     image: nileshgule/sqlclient
     build:
       context: ../src/TechTalksDB
       dockerfile: Dockerfile
+
+  sql.data:
+    image: microsoft/mssql-server-linux:2017-latest
+    container_name: sql1
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=June2018
+    tty: true
     
   techtalks.web:
     image: nileshgule/techtalksweb

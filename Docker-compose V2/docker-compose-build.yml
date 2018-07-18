@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  sql.data.client:
+    build:
+      context: ../src/TechTalksDB
+      dockerfile: Dockerfile
+    
+  techtalks.web:
+    build:
+      context: ../src/TechTalksWeb
+      dockerfile: Dockerfile
+    depends_on: 
+      - techtalks.api
+      
+  techtalks.api:
+    build:
+      context: ../src/TechTalksAPI
+      dockerfile: Dockerfile
+    
+    

@@ -1,0 +1,18 @@
+@model TechTalksModel.DTO.TechTalkDTO
+@{
+    ViewData["Title"] = "Tech Talk Details";
+}
+
+<dt>
+    @Html.DisplayNameFor(model => model.TechTalkName)
+</dt>
+<dd>
+    @Html.DisplayFor(model => model.TechTalkName)
+</dd>
+
+<dt>
+    @Html.DisplayNameFor(model => model.CategoryId)
+</dt>
+<dd>
+    @Html.DisplayFor(model => model.CategoryId)
+</dd>
