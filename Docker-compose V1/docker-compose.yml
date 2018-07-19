@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  sql.data-client:
+    image: nileshgule/sqlclient
+    build:
+      context: ../src/TechTalksDB
+      dockerfile: Dockerfile
+
+  sql.data:
+    image: microsoft/mssql-server-linux:2017-latest
+    container_name: sql1
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=June2018
+    tty: true
+    
+  techtalks.web:
+    image: nileshgule/techtalksweb
+    build:
+      context: ../src/TechTalksWeb
+      dockerfile: Dockerfile
+    depends_on: 
+      - techtalks.api
+    ports:
+      - "80:80"
+      
+  techtalks.api:
+    image: nileshgule/techtalksapi
+    build:
+      context: ../src/TechTalksAPI
+      dockerfile: Dockerfile
+    depends_on:
+      - sql.data
+    ports:
+      - "8080:80"
+    environment:
+      - ConnectionStrings__DefaultConnection=Data Source=sql1,1433;Initial Catalog=TechTalksDB;User Id=SA;Password=June2018;MultipleActiveResultSets=True;
