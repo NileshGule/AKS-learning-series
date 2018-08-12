@@ -16,8 +16,8 @@ namespace TechTalksWeb.Controllers
 {
     public class TechTalkController : Controller
     {
-        // private const string API_BASE_URL = "http://techtalksapi:8080/api/techtalks/";
-        private const string API_BASE_URL = "http://docker.for.mac.host.internal:8080/api/techtalks/";
+        private const string API_BASE_URL = "http://techtalksapi:8080/api/techtalks/";
+        // private const string API_BASE_URL = "http://docker.for.mac.host.internal:8080/api/techtalks/";
 
         public IActionResult Index()
         {
