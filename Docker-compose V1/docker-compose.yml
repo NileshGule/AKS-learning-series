@@ -1,4 +1,4 @@
-version: '3'
+version: '3.3'
 
 services:
   sql.data-client:
@@ -9,7 +9,7 @@ services:
 
   sql.data:
     image: microsoft/mssql-server-linux:2017-latest
-    container_name: sql1
+    # container_name: sql1
     ports:
       - "1433:1433"
     environment:
@@ -37,4 +37,4 @@ services:
     ports:
       - "8080:80"
     environment:
-      - ConnectionStrings__DefaultConnection=Data Source=sql1,1433;Initial Catalog=TechTalksDB;User Id=SA;Password=June2018;MultipleActiveResultSets=True;
+      - ConnectionStrings__DefaultConnection=Data Source=sql.data,1433;Initial Catalog=TechTalksDB;User Id=SA;Password=June2018;MultipleActiveResultSets=True;
