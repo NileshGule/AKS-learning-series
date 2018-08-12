@@ -29,4 +29,7 @@ kubectl config use-context docker-for-desktop
 kubectl cluster-info
 
 kubectl get all
+
+kubectl proxy
+
 ```
