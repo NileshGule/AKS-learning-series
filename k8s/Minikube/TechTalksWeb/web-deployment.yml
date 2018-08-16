@@ -1,0 +1,33 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+
+metadata:
+  name: techtalksweb
+  namespace: aks-part3
+  labels:
+    run: webfront
+
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: webfront-deployment
+  
+  template:
+    metadata:
+      labels:
+        run: webfront-deployment
+    spec:
+      containers:
+      - name: techtalksweb
+        image: nileshgule/techtalksweb
+        env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: "Development"
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        imagePullPolicy: IfNotPresent   
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst

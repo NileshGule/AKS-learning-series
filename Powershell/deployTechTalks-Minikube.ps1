@@ -15,7 +15,7 @@ Write-Host "Starting deployment of TechTalks application and services" -Foregrou
 Set-Location ~/projects/AKS-learning-series/k8s/Minikube
 
 Write-Host "Creating namespace"  -ForegroundColor Yellow
-kubectl apply --filename 00_VDNamespace.yml
+kubectl apply --filename 00_AKS_Namespace.yml
 Write-Host "Namespace created successfully" -ForegroundColor Cyan
 
 Write-Host "Deploying Tech Talks DB service" -ForegroundColor Yellow
