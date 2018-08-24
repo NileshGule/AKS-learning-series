@@ -33,3 +33,23 @@ Contains the source code.
 - `Minikube`
 
 Contains instructions for setting up `Minikube` cluster and `Kubectl`
+
+## Online resources
+
+The Azure Kubernetes Service (AKS) Learning Series is recorded and videos are available on Engineers.sg website. 
+
+- [AKS Part 1 - Getting started with Docker](https://engineers.sg/video/azure-container-service-aks-part-1-getting-started-with-docker-by-nilesh-gule--2732)
+- [AKS Part 2 - Stitch multiple containers using Docker Compose](https://www.engineers.sg/video/azure-kubernetes-service-aks-2-stitch-multi-container-apps-with-docker-compose--2814)
+- [AKS Part 3 - Container Orchestration using Kubernetes / Minikube](https://engineers.sg/video/orchestrating-containers-using-minikube--2849)
+
+## Slides at Slideshare
+
+- [AKS Part 1 - Getting started with Docker](https://www.slideshare.net/nileshgule/azure-kubernetes-service-aks-part-1)
+- [AKS Part 2 - Stitch multiple containers using Docker compose](https://www.slideshare.net/nileshgule/azure-kubernetes-service-aks-part-2-stitch-multi-container-apps-using-docker-compose)
+- [AKS Part 3 - Container Orchestration using Kubernetes / Minikube](https://www.slideshare.net/nileshgule/azure-kubernetes-service-aks-part-3-110006705)
+
+## Slides at Speakerdeck
+
+- [AKS Part 1 - Getting started with Docker](https://speakerdeck.com/nileshgule/azure-kubernetes-service-learning-series-part-1-docker)
+- [AKS Part 2 - Stitch multiple containers using Docker compose](https://speakerdeck.com/nileshgule/stitch-multi-container-apps-using-docker-compose)
+- [AKS Part 3 - Container Orchestration using Kubernetes / Minikube](https://speakerdeck.com/nileshgule/container-orchestration-using-kubernetes)
