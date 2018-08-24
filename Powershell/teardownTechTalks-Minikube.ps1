@@ -1,5 +1,4 @@
 Write-Host "Starting deletion of TechTalks application and services" -ForegroundColor Yellow
-Set-Location ~/projects/AKS-learning-series/k8s/Minikube
 
 Write-Host "Deleting Tech Talks web frontend" -ForegroundColor Yellow
 Set-Location ~/projects/AKS-learning-series/k8s/Minikube/TechTalksWeb

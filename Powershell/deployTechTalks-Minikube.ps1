@@ -1,15 +1,17 @@
+# With the latest reelase of Docker for Mac, there is no need to run Minikube seprately
+# Docker has support for single node Kubernetes cluster.
 
-$minikubeStatus = minikube status
+# $minikubeStatus = minikube status
 
-Write-Host $minikubeStatus -ForegroundColor Magenta
+# Write-Host $minikubeStatus -ForegroundColor Magenta
 
-$IsStopped =$minikubeStatus.Contains("minikube: Stopped")
+# $IsStopped =$minikubeStatus.Contains("minikube: Stopped")
 
-if($IsStopped)
-{
-    Write-Host "Starting local minikube cluster" -ForegroundColor Yellow
-    minikube start
-}
+# if($IsStopped)
+# {
+#     Write-Host "Starting local minikube cluster" -ForegroundColor Yellow
+#     minikube start
+# }
 
 Write-Host "Starting deployment of TechTalks application and services" -ForegroundColor Yellow
 Set-Location ~/projects/AKS-learning-series/k8s/Minikube
