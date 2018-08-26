@@ -28,7 +28,7 @@ spec:
             - "/opt/mssql-tools/bin/sqlcmd -S db-deployment -U sa -P January2018 -d master -i initialize-database.sql"
       containers:
       - name: techtalksapi
-        image: nileshgule/techtalksapi:v1
+        image: nileshgule/techtalksapi
         imagePullPolicy: IfNotPresent
         env:
           - name: ASPNETCORE_URLS
