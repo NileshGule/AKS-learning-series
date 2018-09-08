@@ -13,7 +13,6 @@ image:
 
 service:
   type: ClusterIP
-  externalPort: 1433
   internalPort: 1433
 
 secrets:
