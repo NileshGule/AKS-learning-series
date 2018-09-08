@@ -12,8 +12,7 @@ spec:
   type: {{ .Values.service.type }}
   clusterIP: None
   ports:
-    - port: {{ .Values.service.externalPort }}
-      targetPort: {{ .Values.service.internalPort }}
+    - port: {{ .Values.service.internalPort }}
       protocol: TCP
   selector:
     app: {{ template "db-deployment.fullname" . }}
