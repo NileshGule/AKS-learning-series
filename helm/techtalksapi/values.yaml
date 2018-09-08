@@ -1,0 +1,32 @@
+# Default values for techtalks api
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+image:
+  repository: nileshgule/techtalksapi
+  tag: latest
+  pullPolicy: IfNotPresent
+  restartPolicy: Always
+  terminationGracePeriodSeconds: 30
+  dnsPolicy: ClusterFirst
+
+initializer_image:
+  repository: nileshgule/sqlclient
+  tag: latest
+
+service:
+  type: ClusterIP
+  internalPort: 8080
+
+resources:
+  limits:
+    memory: 256Mi
+    cpu: 1000m
+  requests:
+    memory: 128Mi
+    cpu: 500m
+
+secrets:
+  connectionString: RGF0YSBTb3VyY2U9ZGItZGVwbG95bWVudDtJbml0aWFsIENhdGFsb2c9VGVjaFRhbGtzREI7VXNlciBJZD1TQTtQYXNzd29yZD1KYW51YXJ5MjAxODtNdWx0aXBsZUFjdGl2ZVJlc3VsdFNldHM9VHJ1ZQ==
+  dbPassword: SmFudWFyeTIwMTg=

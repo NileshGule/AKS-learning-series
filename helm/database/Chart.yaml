@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart for the TechTalk Database
+name: database
+version: 1.0.0

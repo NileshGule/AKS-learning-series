@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ template "techtalksweb.fullname" . }}
+  labels:
+    run: {{ template "techtalksweb.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  revisionHistoryLimit: 2
+  template:
+    metadata:
+      labels:
+        run: {{ template "techtalksweb.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.internalPort }}
+              protocol: "TCP"
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+          env:
+          - name: ASPNETCORE_ENVIRONMENT
+            value: "Development"
+      restartPolicy: {{ .Values.image.restartPolicy }}
+      terminationGracePeriodSeconds: {{ .Values.image.terminationGracePeriodSeconds }}

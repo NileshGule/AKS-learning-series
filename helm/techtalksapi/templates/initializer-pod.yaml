@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: {{ template "techtalksapi.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+annotations:
+  "helm.sh/hook": "post-install,post-upgrade"
+  "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  containers:
+  - name: initializer-pod
+    image: "{{ .Values.initializer_image.repository }}:{{ .Values.initializer_image.tag }}"
+    imagePullPolicy: IfNotPresent
+    command:
+    - "sh"
+    - "-c"
+    - "/opt/mssql-tools/bin/sqlcmd -S db-deployment -U sa -P January2018 -d master -i initialize-database.sql"
+    env:
+    - name: DB_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: {{ template "techtalksapi.fullname" . }}
+          key: dbPassword
+  restartPolicy: Never
+
