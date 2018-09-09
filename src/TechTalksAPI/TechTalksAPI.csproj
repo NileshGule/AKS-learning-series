@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.ENtityFrameworkCore.SqlServer" Version="2.1.2" />
+    <PackageReference Include="Microsoft.ENtityFrameworkCore.SqlServer" Version="2.1.0" />
   </ItemGroup>
 
 </Project>
