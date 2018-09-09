@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using TechTalksModel.DTO;
 
 namespace TechTalksWeb.ViewModels
 {
@@ -13,7 +12,7 @@ namespace TechTalksWeb.ViewModels
 
         public List<SelectListItem> Levels {get;} = new List<SelectListItem>
         {
-            new SelectListItem {Value = "1", Text = "100 - Beginer"},
+            new SelectListItem {Value = "1", Text = "100 - Beginner"},
             new SelectListItem {Value = "2", Text = "200 - Intermediate"},
             new SelectListItem {Value = "3", Text = "300 - Advanced"},
             new SelectListItem {Value = "4", Text = "400 - Expert"}

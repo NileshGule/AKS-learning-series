@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using TechTalksWeb.Models;
@@ -31,7 +30,7 @@ namespace TechTalksWeb.Controllers
             
                 techTalks.AddRange(JsonConvert.DeserializeObject<List<TechTalkDTO>>(response));
 
-                Console.WriteLine($"Number of records in collecton : {techTalks.Count()}");
+                Console.WriteLine($"Number of records in collection : {techTalks.Count()}");
             }
             catch (Exception ex)
             {
@@ -44,7 +43,7 @@ namespace TechTalksWeb.Controllers
                 new TechTalkDTO {Id = 2, TechTalkName="Kubernetes", CategoryId = 2}
             };
 
-            if(techTalks.Count() == 0)
+            if(!techTalks.Any())
             {
                 techTalks.AddRange(result);
             }
@@ -93,13 +92,6 @@ namespace TechTalksWeb.Controllers
         {
             Console.WriteLine($"Talk name : {viewModel.TechTalkName}");
             Console.WriteLine($"Category ID : {viewModel.CategoryId}");
-
-            TechTalkDTO dto = new TechTalkDTO
-            {
-                TechTalkName = viewModel.TechTalkName,
-                CategoryId = viewModel.CategoryId,
-                LevelId = viewModel.LevelId
-            };
 
             try
             {

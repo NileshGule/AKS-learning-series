@@ -1,5 +1,3 @@
-using System;
-
 namespace TechTalksWeb.Models
 {
     public class ErrorViewModel
