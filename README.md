@@ -45,6 +45,29 @@ Contains the source code.
 
 Contains instructions for setting up `Minikube` cluster and `Kubectl`
 
+## Setup Development environment
+
+The project is based on .Net Core 2.1 framework. The application is built using Docker Multi-Stage builds and does not require the base machine to have .Net Core or runtime to be installed. It is recommended to install .Net Core framework locally on the machine if you wish to debug the code.
+
+### Mac and CLI resources
+
+This project was initially started with Mac and cross platform resources for .Net Core development including
+- Visual Studio Code
+- iTerm 2
+- Powershell
+- Docker for Mac
+
+### Windows 10 and CLI resources
+
+The application can be tested on Windows 10 using tools listed below
+- Visual Studio Code
+- Powershell
+- Docker for Windows
+
+### Windows 10 and Visual Studio 2017
+
+For some people it is unimaginable to work our of Visual Studio.You can replace Visual Studio Code with Visual Studio 2017 as the preferred IDE. 
+
 ## Online resources
 
 The Azure Kubernetes Service (AKS) Learning Series is recorded and videos are available on Engineers.sg website. 
