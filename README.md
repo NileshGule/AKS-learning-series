@@ -93,12 +93,24 @@ For some people it is unimaginable to work our of Visual Studio.You can replace 
 
 The Azure Kubernetes Service (AKS) Learning Series is recorded and videos are available on Engineers.sg website. 
 
-- [AKS Part 1 - Getting started with Docker](https://engineers.sg/video/azure-container-service-aks-part-1-gettin-started-with-docker-by-nilesh-gule--2732) ![AKS Part1 Youtube](/Images/AKS-Part1.PNG)
-- [AKS Part 2 - Stitch multiple containers using Docker Compose](https://www.engineers.sg/video/azure-kubernetes-service-aks-2-stitch-multi-container-apps-with-docker-compose--2814)![AKS Part2 Youtube](/Images/AKS-Part2.png)
-- [AKS Part 3 - Container Orchestration using Kubernetes / Minikube](https://engineers.sg/video/orchestrating-containers-using-minikube--2849)![AKS Part3 Youtube](/Images/AKS-Part3.png)
+- AKS Part 1 - Getting started with Docker
+
+[![Getting started with Docker](/Images/AKS-Part1.PNG)](https://engineers.sg/video/azure-container-service-aks-part-1-gettin-started-with-docker-by-nilesh-gule--2732)
+
+- AKS Part 2 - Stitch multiple containers using Docker Compose
+
+[![Stitch multiple containers using Docker Compose](/Images/AKS-Part2.png)](https://www.engineers.sg/video/azure-kubernetes-service-aks-2-stitch-multi-container-apps-with-docker-compose--2814)
+
+- AKS Part 3 - Container Orchestration using Kubernetes / Minikube
+
+[![Container Orchestration using Kubernetes / Minikube](/Images/AKS-Part3.png)](https://engineers.sg/video/orchestrating-containers-using-minikube--2849)
+
 - AKS Part 4 - Deploy Multi-container Apps to Azure Kubernetes Service (AKS)]
+
 [![Deploy Multi-container Apps to Azure Kubernetes Service (AKS)](/Images/AKS-Part4.png)](https://www.engineers.sg/video/aks-learning-series-4-multi-container-apps-via-aks--2880)
+
 - AKS Part 5 - Debug and Monitor Multi-container Apps running on Azure Kubernetes Service (AKS)
+
 [![Debug and Monitor Multi-container Apps running on Azure Kubernetes Service (AKS)](/Images/AKS-Part5.png)](https://engineers.sg/video/monitor-aks-cluster-with-container-monitoring-solution-using-oms--2957)
 
 ## Slides at Slideshare
