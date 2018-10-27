@@ -17,7 +17,7 @@ spec:
       containers:
       - name: sql2017
         image: microsoft/mssql-server-linux
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         ports:
         - name: dbport
           containerPort: 1433
@@ -25,7 +25,7 @@ spec:
         - name: ACCEPT_EULA
           value: "Y"
         - name: SA_PASSWORD
-          value: January2018
+          value: June@2018
           # valueFrom:
           #   secretKeyRef:
           #     name: sqlsecret
