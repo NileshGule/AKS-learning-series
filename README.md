@@ -1,6 +1,24 @@
 # Azure Kubernetes Service (AKS) Learning Series
 
-Demo code for Hands on Series for `Azure kubernetes Series (AKS) learning series`. 
+Demo code for Hands on Series for `Azure kubernetes Series (AKS) learning series`. The series is delivered as part of Azure Learning Series for the Microsoft Azure user group in Singapore. The objective of this series is to learn about containerizing multi-container application using Docker. The multi-container application is then deployed to a managed Kubernetes cluster using Azure Kubernetes Service.
+
+## Application Overview
+
+![application overview](/Images/App-overview.png)
+
+The application makes use of ASP.Net Core for building a MVC front end. It is an application for managing hypothetical events for TechTalks. The front end interacts with an backend ASP.Net Core API. SQL Server 2017 provides the persistent storage. All these 3 components are containerized using Docker.
+
+The application is deployed to Azure Kubernetes Service (AKS) cluster in a multinode environment.
+
+![AKS resources](/Images/AKS-resources.png)
+
+We used `Azure Disk` to manage database state using `Persistent Volume` and `Persistent Volume Claim`. Finally we used `Azure Monitoring` to monitor the clsuter state and also an open source solution with `Prometheus` and `Grafana` as an alternative to Azure Monitor.
+
+Here is an example of Grafana dashboard for Kubernetes Capacity Planning
+![AKS resources](/Images/Grafana-dashboard1.png)
+
+Grafana dashboard for pod utilization
+![AKS resources](/Images/Grafana-podutilization.png)
 
 ## Code organization
 
@@ -13,11 +31,14 @@ Contains the docker-compose file in its simplest form
 Contains the docker-compose files split into a base compose file and separate files for build and run scenarios. This is a preferred approach as it allows to have clear separation in terms of images which are built as part of application code and images which are used from other pre-built images. This also allows us to separate configurations between different environments like Dev / Integration / Production etc.
 
 - `Helm`
+
 Contains the Helm charts which are useful for deploying Kubernetes applications. Refer to the [Helm readme](/helm/Readme.md) file for more details.
 
 - `k8s`
 
-Contains Kubernetes Manifest files. These are grouped into `Minikube` version with services exposed using `NodePort` type. `AKS` version exposes the `TechTalksWeb` and `TechTalksDB` using LoadBalancer. The data is also persisted to outside of the container using `Persistent Volume (PV)` and `Persistent Volume Claim (PVC)`. The volume is backed by `Azure Disk`. 
+Contains Kubernetes Manifest files. These are grouped into `Minikube` version with services exposed using `NodePort` type. `AKS` version exposes the `TechTalksWeb` and `TechTalksDB` using LoadBalancer. The data is also persisted to outside of the container using `Persistent Volume (PV)` and `Persistent Volume Claim (PVC)`. The volume is backed by `Azure Disk`.
+
+AKS version contians the Kubernetes Manifest files for deploying `Prometheus` and `Grafana` resources to the AKS cluster. These are used for monitoring the AKS cluster.
 
 - `Powershell`
 
@@ -85,7 +106,6 @@ The Azure Kubernetes Service (AKS) Learning Series is recorded and videos are av
 - [AKS Part 3 - Container Orchestration using Kubernetes / Minikube](https://www.slideshare.net/nileshgule/azure-kubernetes-service-aks-part-3-110006705)
 - [AKS Part 4 - Deploy Multi-container Apps to Azure Kubernetes Service (AKS)](https://www.slideshare.net/nileshgule/azure-kubernetes-service-aks-part-4-deploy-multicontainer-app-to-aks-cluster)
 - [AKS Part 5 - Debug and Monitor Multi-container Apps on Azure Kubernetes Service (AKS)](https://www.slideshare.net/nileshgule/debug-and-monitor-multicontainer-apps-on-aks)
-
 
 ## Slides at Speakerdeck
 
