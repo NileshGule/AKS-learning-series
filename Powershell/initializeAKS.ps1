@@ -27,7 +27,7 @@ az group create `
 
 # Create AKS cluster
 Write-Host "Creating AKS cluster $clusterName with resource group $resourceGroupName in region $resourceGroupLocaltion" -ForegroundColor Yellow
-time az aks create `
+az aks create `
 --resource-group=$resourceGroupName `
 --name=$clusterName `
 --node-count=$workerNodeCount `

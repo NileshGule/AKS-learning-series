@@ -26,6 +26,8 @@ services:
       - techtalks.api
     ports:
       - "80:80"
+    environment:
+      - TechTalksAPIUrl="http://techtalksapi:8080/api/techtalks/"
       
   techtalks.api:
     image: nileshgule/techtalksapi
