@@ -12,7 +12,7 @@ The application is deployed to Azure Kubernetes Service (AKS) cluster in a multi
 
 ![AKS resources](/Images/AKS-resources.png)
 
-We used `Azure Disk` to manage database state using `Persistent Volume` and `Persistent Volume Claim`. Finally we used `Azure Monitoring` to monitor the clsuter state and also an open source solution with `Prometheus` and `Grafana` as an alternative to Azure Monitor.
+We used `Azure Disk` to manage database state using `Persistent Volume` and `Persistent Volume Claim`. Finally we used `Azure Monitoring` to monitor the cluster state and also an open source solution with `Prometheus` and `Grafana` as an alternative to Azure Monitor.
 
 Here is an example of Grafana dashboard for Kubernetes Capacity Planning
 ![AKS resources](/Images/Grafana-dashboard1.png)
@@ -93,11 +93,11 @@ For some people it is unimaginable to work our of Visual Studio.You can replace 
 
 The Azure Kubernetes Service (AKS) Learning Series is recorded and videos are available on Engineers.sg website. 
 
-- [AKS Part 1 - Getting started with Docker](https://engineers.sg/video/azure-container-service-aks-part-1-getting-started-with-docker-by-nilesh-gule--2732)
-- [AKS Part 2 - Stitch multiple containers using Docker Compose](https://www.engineers.sg/video/azure-kubernetes-service-aks-2-stitch-multi-container-apps-with-docker-compose--2814)
-- [AKS Part 3 - Container Orchestration using Kubernetes / Minikube](https://engineers.sg/video/orchestrating-containers-using-minikube--2849)
-- [AKS Part 4 - Deploy Multi-container Apps to Azure Kubernetes Service (AKS)](https://www.engineers.sg/video/aks-learning-series-4-multi-container-apps-via-aks--2880)
-- [AKS Part 5 - Debug and Monitor Multi-container Apps running on Azure Kubernetes Service (AKS)](https://engineers.sg/video/monitor-aks-cluster-with-container-monitoring-solution-using-oms--2957)
+- [AKS Part 1 - Getting started with Docker](https://engineers.sg/video/azure-container-service-aks-part-1-gettin-started-with-docker-by-nilesh-gule--2732) ![AKS Part1 Youtube](/Images/AKS-Part1.PNG)
+- [AKS Part 2 - Stitch multiple containers using Docker Compose](https://www.engineers.sg/video/azure-kubernetes-service-aks-2-stitch-multi-container-apps-with-docker-compose--2814)![AKS Part2 Youtube](/Images/AKS-Part2.PNG)
+- [AKS Part 3 - Container Orchestration using Kubernetes / Minikube](https://engineers.sg/video/orchestrating-containers-using-minikube--2849)![AKS Part3 Youtube](/Images/AKS-Part3.PNG)
+- [AKS Part 4 - Deploy Multi-container Apps to Azure Kubernetes Service (AKS)](https://www.engineers.sg/video/aks-learning-series-4-multi-container-apps-via-aks--2880)![AKS Part4 Youtube](/Images/AKS-Part4.PNG)
+- [AKS Part 5 - Debug and Monitor Multi-container Apps running on Azure Kubernetes Service (AKS)](https://engineers.sg/video/monitor-aks-cluster-with-container-monitoring-solution-using-oms--2957)![AKS Part5 Youtube](/Images/AKS-Part5.PNG)
 
 ## Slides at Slideshare
 
