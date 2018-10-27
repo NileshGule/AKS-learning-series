@@ -66,7 +66,7 @@ The application can be tested on Windows 10 using tools listed below
 
 ### Windows 10 and Visual Studio 2017
 
-For some people it is unimaginable to work our of Visual Studio.You can replace Visual Studio Code with Visual Studio 2017 as the preferred IDE. 
+For some people it is unimaginable to work our of Visual Studio.You can replace Visual Studio Code with Visual Studio 2017 as the preferred IDE.
 
 ## Online resources
 
