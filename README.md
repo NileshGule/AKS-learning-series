@@ -76,6 +76,7 @@ The Azure Kubernetes Service (AKS) Learning Series is recorded and videos are av
 - [AKS Part 2 - Stitch multiple containers using Docker Compose](https://www.engineers.sg/video/azure-kubernetes-service-aks-2-stitch-multi-container-apps-with-docker-compose--2814)
 - [AKS Part 3 - Container Orchestration using Kubernetes / Minikube](https://engineers.sg/video/orchestrating-containers-using-minikube--2849)
 - [AKS Part 4 - Deploy Multi-container Apps to Azure Kubernetes Service (AKS)](https://www.engineers.sg/video/aks-learning-series-4-multi-container-apps-via-aks--2880)
+- [AKS Part 5 - Debug and Monitor Multi-container Apps running on Azure Kubernetes Service (AKS)](https://engineers.sg/video/monitor-aks-cluster-with-container-monitoring-solution-using-oms--2957)
 
 ## Slides at Slideshare
 
@@ -83,6 +84,8 @@ The Azure Kubernetes Service (AKS) Learning Series is recorded and videos are av
 - [AKS Part 2 - Stitch multiple containers using Docker compose](https://www.slideshare.net/nileshgule/azure-kubernetes-service-aks-part-2-stitch-multi-container-apps-using-docker-compose)
 - [AKS Part 3 - Container Orchestration using Kubernetes / Minikube](https://www.slideshare.net/nileshgule/azure-kubernetes-service-aks-part-3-110006705)
 - [AKS Part 4 - Deploy Multi-container Apps to Azure Kubernetes Service (AKS)](https://www.slideshare.net/nileshgule/azure-kubernetes-service-aks-part-4-deploy-multicontainer-app-to-aks-cluster)
+- [AKS Part 5 - Debug and Monitor Multi-container Apps on Azure Kubernetes Service (AKS)](https://www.slideshare.net/nileshgule/debug-and-monitor-multicontainer-apps-on-aks)
+
 
 ## Slides at Speakerdeck
 
@@ -90,3 +93,4 @@ The Azure Kubernetes Service (AKS) Learning Series is recorded and videos are av
 - [AKS Part 2 - Stitch multiple containers using Docker compose](https://speakerdeck.com/nileshgule/stitch-multi-container-apps-using-docker-compose)
 - [AKS Part 3 - Container Orchestration using Kubernetes / Minikube](https://speakerdeck.com/nileshgule/container-orchestration-using-kubernetes)
 - [AKS Part 4 - Deploy Multi-container Apps to Azure Kubernetes Service (AKS)](https://speakerdeck.com/nileshgule/aks-learning-series-deploy-multi-container-apps-to-azure-kubernetes-service-aks)
+- [AKS Part 5 - Debug and Monitor Multi-container Apps on Azure Kubernetes Service (AKS)](https://speakerdeck.com/nileshgule/debug-and-monitor-multi-container-apps)
