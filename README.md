@@ -18,7 +18,7 @@ Here is an example of Grafana dashboard for Kubernetes Capacity Planning
 ![AKS resources](/Images/Grafana-dashboard1.png)
 
 Grafana dashboard for pod utilization
-![AKS resources](/Images/Grafana-podutilization.png)
+![AKS resources](/Images/grafana-podutilization.png)
 
 ## Code organization
 
