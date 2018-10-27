@@ -98,6 +98,8 @@ The Azure Kubernetes Service (AKS) Learning Series is recorded and videos are av
 - [AKS Part 3 - Container Orchestration using Kubernetes / Minikube](https://engineers.sg/video/orchestrating-containers-using-minikube--2849)![AKS Part3 Youtube](/Images/AKS-Part3.png)
 - [AKS Part 4 - Deploy Multi-container Apps to Azure Kubernetes Service (AKS)](https://www.engineers.sg/video/aks-learning-series-4-multi-container-apps-via-aks--2880)![AKS Part4 Youtube](/Images/AKS-Part4.png)
 - [AKS Part 5 - Debug and Monitor Multi-container Apps running on Azure Kubernetes Service (AKS)](https://engineers.sg/video/monitor-aks-cluster-with-container-monitoring-solution-using-oms--2957)![AKS Part5 Youtube](/Images/AKS-Part5.png)
+- AKS Part 5 - Debug and Monitor Multi-container Apps running on Azure Kubernetes Service (AKS)
+[![Debug and Monitor Multi-container Apps running on Azure Kubernetes Service (AKS)](/Images/AKS-Part5.png)](https://engineers.sg/video/monitor-aks-cluster-with-container-monitoring-solution-using-oms--2957)
 
 ## Slides at Slideshare
 
