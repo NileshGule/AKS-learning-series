@@ -31,9 +31,9 @@ az aks create `
 --resource-group=$resourceGroupName `
 --name=$clusterName `
 --node-count=$workerNodeCount `
---kubernetes-version=$kubernetesVersion `
 --disable-rbac `
 --output=jsonc
+# --kubernetes-version=$kubernetesVersion `
 
 # Get credentials for newly created cluster
 Write-Host "Getting credentials for cluster $clusterName" -ForegroundColor Yellow
