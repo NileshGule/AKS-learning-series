@@ -22,10 +22,16 @@ spec:
         - name: init-myservice
           image: nileshgule/sqlclient
           imagePullPolicy: IfNotPresent
+          env:
+          - name: SA_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: sqlsecret
+                key: sapassword
           command:
             - "sh"
             - "-c"
-            - "/opt/mssql-tools/bin/sqlcmd -S db-deployment -U sa -P June@2018 -d master -i initialize-database.sql"
+            - "/opt/mssql-tools/bin/sqlcmd -S db-deployment -U sa -P $(SA_PASSWORD) -d master -i initialize-database.sql"
       containers:
       - name: techtalksapi
         image: nileshgule/techtalksapi
@@ -33,8 +39,13 @@ spec:
         env:
           - name: ASPNETCORE_URLS
             value: http://0.0.0.0:8080
+          - name: SA_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: sqlsecret
+                key: sapassword
           - name: ConnectionStrings__DefaultConnection
-            value: "Data Source=db-deployment;Initial Catalog=TechTalksDB;User Id=SA;Password=June@2018;MultipleActiveResultSets=True" 
+            value: "Data Source=db-deployment;Initial Catalog=TechTalksDB;User Id=SA;Password=$(SA_PASSWORD);MultipleActiveResultSets=True" 
         ports:
         - containerPort: 8080
           protocol: TCP
