@@ -37,11 +37,11 @@ kubectl apply --recursive --filename .
 
 Write-Host "Tech talks API service deployed successfully" -ForegroundColor Cyan
 
-Write-Host "Deploying Tech Talks web frontend" -ForegroundColor Yellow
-Set-Location ~/projects/AKS-learning-series/k8s/AKS/TechTalksWeb
-kubectl apply --recursive --filename . 
+# Write-Host "Deploying Tech Talks web frontend" -ForegroundColor Yellow
+# Set-Location ~/projects/AKS-learning-series/k8s/AKS/TechTalksWeb
+# kubectl apply --recursive --filename . 
 
-Write-Host "Tech talks web frontend deployed successfully" -ForegroundColor Cyan
+# Write-Host "Tech talks web frontend deployed successfully" -ForegroundColor Cyan
 
 Write-Host "All the services related to Tech Talks application have been successfully deployed" -ForegroundColor Cyan
 

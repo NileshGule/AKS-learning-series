@@ -12,7 +12,7 @@ image:
   dnsPolicy: ClusterFirst
 
 service:
-  type: NodePort
+  type: LoadBalancer
   internalPort: 80
 
 resources:

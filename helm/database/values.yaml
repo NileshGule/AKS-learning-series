@@ -12,8 +12,9 @@ image:
   dnsPolicy: ClusterFirst
 
 service:
-  type: ClusterIP
+  # type: ClusterIP
+  type: LoadBalancer
   internalPort: 1433
 
 secrets:
-  sapassword: SmFudWFyeTIwMTg=
+  sapassword: SnVuZUAyMDE4
