@@ -2,4 +2,4 @@ name: techtalksdb-data
 # capacity of the storage e.g. 10Gi
 capacity: 1Gi
 # Access mode, read and write from many pods, needs to match the volume spec
-accessMode: ReadWriteMany
+accessMode: ReadWriteOnce
