@@ -4,8 +4,7 @@ apiVersion: storage.k8s.io/v1beta1
 metadata:
   namespace: {{ .Release.Namespace }}
   name: {{ .Values.name | quote }}
-     
-     
+          
 provisioner: {{ .Values.provisioner | quote }}
 parameters:
   storageaccounttype: {{ .Values.parameters.storageaccounttype | quote }}
