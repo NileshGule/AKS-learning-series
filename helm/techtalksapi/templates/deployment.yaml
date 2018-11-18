@@ -37,10 +37,11 @@ spec:
             value: http://0.0.0.0:8080
 
           - name: ConnectionStrings__DefaultConnection
-            valueFrom:
-              secretKeyRef:
-                name: {{ template "techtalksapi.fullname" . }}
-                key: connectionString
+            value: "Data Source=db-deployment;Initial Catalog=TechTalksDB;User Id=SA;Password=June@2018;MultipleActiveResultSets=True" 
+            # valueFrom:
+            #   secretKeyRef:
+            #     name: {{ template "techtalksapi.fullname" . }}
+            #     key: connectionString
 
       restartPolicy: {{ .Values.image.restartPolicy }}
       terminationGracePeriodSeconds: {{ .Values.image.terminationGracePeriodSeconds }}
