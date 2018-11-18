@@ -29,5 +29,7 @@ spec:
           env:
           - name: ASPNETCORE_ENVIRONMENT
             value: "Development"
+          - name: TechTalksAPIUrl
+            value: "http://techtalksapi:8080/api/techtalks/" 
       restartPolicy: {{ .Values.image.restartPolicy }}
       terminationGracePeriodSeconds: {{ .Values.image.terminationGracePeriodSeconds }}
