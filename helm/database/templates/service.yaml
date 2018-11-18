@@ -10,7 +10,6 @@ metadata:
     heritage: {{ .Release.Service }}
 spec:
   type: {{ .Values.service.type }}
-  clusterIP: None
   ports:
     - port: {{ .Values.service.internalPort }}
       protocol: TCP
