@@ -12,6 +12,7 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.internalPort }}
+      targetPort: {{ .Values.service.internalPort }}
       protocol: TCP
   selector:
     app: {{ template "db-deployment.fullname" . }}
