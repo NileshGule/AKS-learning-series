@@ -1,7 +1,0 @@
-name: azure-disk
-# storageClass name of the storage class
-provisioner: kubernetes.io/azure-disk
-
-parameters:
-  storageaccounttype: Standard_LRS
-  kind: Managed
