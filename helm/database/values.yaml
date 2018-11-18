@@ -14,7 +14,7 @@ image:
 service:
   # type: ClusterIP
   type: LoadBalancer
-  internalPort: 1433
+  # internalPort: 1433
 
 secrets:
   sapassword: SnVuZUAyMDE4
