@@ -2,9 +2,10 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
+  namespace: {{ .Release.Namespace }}
   # name: techtalksdb-data
   name: {{ .Values.name | quote }}
-  namespace: {{ .Release.Namespace }}
+  
   annotations:
     volume.beta.kubernetes.io/storage-class: azure-disk
 spec:
