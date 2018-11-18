@@ -1,0 +1,11 @@
+---
+kind: StorageClass
+apiVersion: storage.k8s.io/v1beta1
+metadata:
+     name: {{ .Values.name | quote }}
+     namespace: {{ .Release.Namespace }}
+     
+provisioner: {{ .Values.provisioner | quote }}
+parameters:
+  storageaccounttype: {{ .Values.parameters.storageaccounttype | quote }}
+  kind: {{ .Values.parameters.kind | quote }}
