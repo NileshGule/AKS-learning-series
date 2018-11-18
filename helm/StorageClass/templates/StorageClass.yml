@@ -2,8 +2,9 @@
 kind: StorageClass
 apiVersion: storage.k8s.io/v1beta1
 metadata:
-     name: {{ .Values.name | quote }}
-     namespace: {{ .Release.Namespace }}
+  namespace: {{ .Release.Namespace }}
+  name: {{ .Values.name | quote }}
+     
      
 provisioner: {{ .Values.provisioner | quote }}
 parameters:
