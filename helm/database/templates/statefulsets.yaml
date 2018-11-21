@@ -45,7 +45,7 @@ spec:
       terminationGracePeriodSeconds: 10
       
       containers:
-      - name: sql2017
+      # - name: sql2017
         image: microsoft/mssql-server-linux
         imagePullPolicy: Always
         ports:
