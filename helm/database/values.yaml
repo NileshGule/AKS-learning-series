@@ -16,5 +16,5 @@ service:
   type: LoadBalancer
   internalPort: 1433
 
-secrets:
-  sapassword: SnVuZUAyMDE4
+# secrets:
+#   sapassword: SnVuZUAyMDE4
