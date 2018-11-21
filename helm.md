@@ -10,6 +10,6 @@ helm delete --purge releasename
 
 helm upgrade -i
 
-helm upgrade --install --name akspart6 --namespae aks-part4 .
+helm upgrade --install akspart6 --namespace aks-part4 .
 
 ```
