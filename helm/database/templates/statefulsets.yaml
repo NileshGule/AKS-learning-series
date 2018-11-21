@@ -1,24 +1,56 @@
 apiVersion: apps/v1beta1
 kind: StatefulSet
+# metadata:
+#   name: {{ template "db-deployment.fullname" . }}
+#   namespace: {{ .Release.Namespace }}
+# spec:
+#   serviceName: {{ template "db-deployment.fullname" . }}
+#   replicas: {{ .Values.replicaCount }}
+#   template:
+#     metadata:
+#       labels:
+#         app: {{ template "db-deployment.fullname" . }}
+#     spec:
+#       terminationGracePeriodSeconds: 10
+#       containers:
+#       - name: {{ .Chart.Name }}
+#         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+#         imagePullPolicy: {{ .Values.image.pullPolicy }}
+#         ports:
+#         - name: dbport
+#           containerPort: {{ .Values.service.internalPort }}
+#         env:
+#         - name: ACCEPT_EULA
+#           value: "Y"
+#         - name: SA_PASSWORD
+#           value: June@2018
+#           # valueFrom:
+#           #   secretKeyRef:
+#           #     name: {{ template "db-deployment.fullname" . }}
+#           #     key: sapassword
+#         - name: MSSQL_PID
+#           value: Developer
+
 metadata:
-  name: {{ template "db-deployment.fullname" . }}
   namespace: {{ .Release.Namespace }}
+  name: db-deployment
 spec:
-  serviceName: {{ template "db-deployment.fullname" . }}
-  replicas: {{ .Values.replicaCount }}
+  serviceName: db-deployment
+  replicas: 1
   template:
     metadata:
       labels:
-        app: {{ template "db-deployment.fullname" . }}
+        app: db
     spec:
       terminationGracePeriodSeconds: 10
+      
       containers:
-      - name: {{ .Chart.Name }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-        imagePullPolicy: {{ .Values.image.pullPolicy }}
+      - name: sql2017
+        image: microsoft/mssql-server-linux
+        imagePullPolicy: Always
         ports:
         - name: dbport
-          containerPort: {{ .Values.service.internalPort }}
+          containerPort: 1433
         env:
         - name: ACCEPT_EULA
           value: "Y"
@@ -26,7 +58,14 @@ spec:
           value: June@2018
           # valueFrom:
           #   secretKeyRef:
-          #     name: {{ template "db-deployment.fullname" . }}
+          #     name: sqlsecret
           #     key: sapassword
         - name: MSSQL_PID
           value: Developer
+      #   volumeMounts:
+      #   - name: mssqldb
+      #     mountPath: /var/opt/mssql
+      # volumes:
+      # - name: mssqldb
+      #   persistentVolumeClaim:
+      #     claimName: techtalksdb-data
