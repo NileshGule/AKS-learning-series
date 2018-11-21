@@ -1,56 +1,9 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
-# metadata:
-#   namespace: {{ .Release.Namespace }}
-#   name: {{ template "techtalksapi.fullname" . }}
-#   labels:
-#     run: {{ template "techtalksapi.name" . }}
-#     chart: {{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}
-#     release: {{ .Release.Name }}
-#     heritage: {{ .Release.Service }}
-# spec:
-#   replicas: {{ .Values.replicaCount }}
-#   revisionHistoryLimit: 2
-#   template:
-#     metadata:
-#       labels:
-#         run: {{ template "techtalksapi.name" . }}
-#         release: {{ .Release.Name }}
-#     spec:
-#       containers:
-#         - name: {{ .Chart.Name }}
-#           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-#           imagePullPolicy: {{ .Values.image.pullPolicy }}
-#           ports:
-#             - containerPort: {{ .Values.service.internalPort }}
-#               protocol: "TCP"
-#           resources:
-# {{ toYaml .Values.resources | indent 12 }}
-#           env:
-#           - name: DB_PASSWORD
-#             value: June@2018
-#             # valueFrom:
-#             #   secretKeyRef:
-#             #     name: {{ template "techtalksapi.fullname" . }}
-#             #     key: dbPassword
-
-#           - name: ASPNETCORE_URLS
-#             value: http://0.0.0.0:8080
-
-#           - name: ConnectionStrings__DefaultConnection
-#             value: "Data Source=db-deployment;Initial Catalog=TechTalksDB;User Id=SA;Password=June@2018;MultipleActiveResultSets=True" 
-#             # valueFrom:
-#             #   secretKeyRef:
-#             #     name: {{ template "techtalksapi.fullname" . }}
-#             #     key: connectionString
-
-#       restartPolicy: {{ .Values.image.restartPolicy }}
-#       terminationGracePeriodSeconds: {{ .Values.image.terminationGracePeriodSeconds }}
 
 metadata:
   namespace: {{ .Release.Namespace }}
   name: techtalksapi
-  # namespace: aks-part4
   labels:
     run: techtalksapi
 
@@ -72,14 +25,9 @@ spec:
           env:
           - name: SA_PASSWORD
             value: June@2018
-            # valueFrom:
-            #   secretKeyRef:
-            #     name: sqlsecret
-            #     key: sapassword
           command:
             - "sh"
             - "-c"
-            # - "/opt/mssql-tools/bin/sqlcmd -S db-deployment -U sa -P $(SA_PASSWORD) -d master -i initialize-database.sql"
             - "/opt/mssql-tools/bin/sqlcmd -S db-deployment -U sa -P June@2018 -d master -i initialize-database.sql"
       containers:
       - name: techtalksapi
@@ -88,11 +36,6 @@ spec:
         env:
           - name: ASPNETCORE_URLS
             value: http://0.0.0.0:8080
-          # - name: SA_PASSWORD
-          #   valueFrom:
-          #     secretKeyRef:
-          #       name: sqlsecret
-          #       key: sapassword
           - name: ConnectionStrings__DefaultConnection
             value: "Data Source=db-deployment;Initial Catalog=TechTalksDB;User Id=SA;Password=June@2018;MultipleActiveResultSets=True" 
         ports:
