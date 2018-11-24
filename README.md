@@ -113,6 +113,10 @@ The Azure Kubernetes Service (AKS) Learning Series is recorded and videos are av
 
 [![Debug and Monitor Multi-container Apps running on Azure Kubernetes Service (AKS)](/Images/AKS-Part5.png)](https://engineers.sg/video/monitor-aks-cluster-with-container-monitoring-solution-using-oms--2957)
 
+- AKS Part 6 - CI CD with Docker and Kubernetes using Azure DevOps
+
+[![CI CD with Docker and Kubernetes using Azure DevOps](/Images/AKS-Part6.png)](https://www.engineers.sg/video/azure-learning-series-azure-container-service-part-6--2986)
+
 ## Slides at Slideshare
 
 - [AKS Part 1 - Getting started with Docker](https://www.slideshare.net/nileshgule/azure-kubernetes-service-aks-part-1)
@@ -120,6 +124,7 @@ The Azure Kubernetes Service (AKS) Learning Series is recorded and videos are av
 - [AKS Part 3 - Container Orchestration using Kubernetes / Minikube](https://www.slideshare.net/nileshgule/azure-kubernetes-service-aks-part-3-110006705)
 - [AKS Part 4 - Deploy Multi-container Apps to Azure Kubernetes Service (AKS)](https://www.slideshare.net/nileshgule/azure-kubernetes-service-aks-part-4-deploy-multicontainer-app-to-aks-cluster)
 - [AKS Part 5 - Debug and Monitor Multi-container Apps on Azure Kubernetes Service (AKS)](https://www.slideshare.net/nileshgule/debug-and-monitor-multicontainer-apps-on-aks)
+- [AKS Part 6 - CI CD with Docker and Kubernetes with Azure DevOps](https://www.slideshare.net/nileshgule/ci-cd-with-docker-and-kubernetes)
 
 ## Slides at Speakerdeck
 
@@ -128,3 +133,4 @@ The Azure Kubernetes Service (AKS) Learning Series is recorded and videos are av
 - [AKS Part 3 - Container Orchestration using Kubernetes / Minikube](https://speakerdeck.com/nileshgule/container-orchestration-using-kubernetes)
 - [AKS Part 4 - Deploy Multi-container Apps to Azure Kubernetes Service (AKS)](https://speakerdeck.com/nileshgule/aks-learning-series-deploy-multi-container-apps-to-azure-kubernetes-service-aks)
 - [AKS Part 5 - Debug and Monitor Multi-container Apps on Azure Kubernetes Service (AKS)](https://speakerdeck.com/nileshgule/debug-and-monitor-multi-container-apps)
+- [AKS Part 6 - CI CD with Docker and Kubernetes with Azure DevOps](https://speakerdeck.com/nileshgule/ci-cd-using-docker-and-kubernetes)

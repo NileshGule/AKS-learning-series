@@ -13,3 +13,5 @@ helm upgrade -i
 helm upgrade --install akspart6 --namespace aks-part4 .
 
 ```
+
+helm delete --purge akspart6
