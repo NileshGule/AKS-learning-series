@@ -9,7 +9,7 @@ services:
 
   sql.data:
     image: microsoft/mssql-server-linux:2017-latest
-    # container_name: sql1
+    container_name: sql1
     ports:
       - "1433:1433"
     environment:
