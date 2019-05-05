@@ -6,7 +6,7 @@ Param(
     [parameter(Mandatory=$false)]
     [string]$resourceGroupLocaltion="South East Asia",
     [parameter(Mandatory=$false)]
-    [string]$clusterName="techtalks",
+    [string]$clusterName="techtalksCluster",
     [parameter(Mandatory=$false)]
     [string]$dnsNamePrefix="techtalksdns",
     [parameter(Mandatory=$false)]
