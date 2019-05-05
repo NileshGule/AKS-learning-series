@@ -1,8 +1,8 @@
 Param(
     [parameter(Mandatory=$false)]
-    [string]$resourceGroupName="aksP4ResourceGroup",
+    [string]$resourceGroupName="techtalksrg",
     [parameter(Mandatory=$false)]
-    [string]$clusterName="aksCluster"
+    [string]$clusterName="techtalksCluster"
 )
 
 # Browse AKS dashboard

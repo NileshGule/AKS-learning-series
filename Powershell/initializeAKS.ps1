@@ -2,15 +2,17 @@ Param(
     [parameter(Mandatory=$false)]
     [string]$subscriptionName="Microsoft Azure Sponsorship",
     [parameter(Mandatory=$false)]
-    [string]$resourceGroupName="aksP4ResourceGroup",
+    [string]$resourceGroupName="techtalksrg",
     [parameter(Mandatory=$false)]
     [string]$resourceGroupLocaltion="South East Asia",
     [parameter(Mandatory=$false)]
-    [string]$clusterName="aksCluster",
+    [string]$clusterName="techtalks",
     [parameter(Mandatory=$false)]
-    [int16]$workerNodeCount=3,
+    [string]$dnsNamePrefix="techtalksdns",
     [parameter(Mandatory=$false)]
-    [string]$kubernetesVersion="1.11.2"
+    [int16]$workerNodeCount=4, #minimum 4 nodes required for SQL 2019 HA setup
+    [parameter(Mandatory=$false)]
+    [string]$kubernetesVersion="1.13.5"
     
 )
 
@@ -31,9 +33,11 @@ az aks create `
 --resource-group=$resourceGroupName `
 --name=$clusterName `
 --node-count=$workerNodeCount `
---disable-rbac `
---output=jsonc
-# --kubernetes-version=$kubernetesVersion `
+--dns-name-prefix=$dnsNamePrefix `
+--generate-ssh-keys `
+--node-vm-size=Standard_D2_v2 `
+--kubernetes-version=$kubernetesVersion `
+--enable-addons http_application_routing
 
 # Get credentials for newly created cluster
 Write-Host "Getting credentials for cluster $clusterName" -ForegroundColor Yellow
@@ -42,3 +46,15 @@ az aks get-credentials `
 --name=$clusterName
 
 Write-Host "Successfully created cluster $clusterName with kubernetes version $kubernetesVersion and $workerNodeCount node(s)" -ForegroundColor Green
+
+Write-Host "Creating cluster role binding for Kubernetes dashboard" -ForegroundColor Green
+kubectl create clusterrolebinding kubernetes-dashboard -n kube-system --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+
+Write-Host "Creating Tiller service account for Helm" -ForegroundColor Green
+Set-Location ~/projects/AKS-Learning-Series/Helm/
+kubectl apply -f .\helm-rbac.yaml
+
+Write-Host "Initializing Helm with Tiller service account" -ForegroundColor Green
+helm init --service-account tiller
+
+Set-Location ~/projects/AKS-Learning-Series/Powershell

@@ -3,7 +3,7 @@ kind: Deployment
 
 metadata:
   name: techtalksapi
-  namespace: aks-part4
+  namespace: techtalksns
   labels:
     run: techtalksapi
 
