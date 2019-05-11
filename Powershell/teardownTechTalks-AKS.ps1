@@ -13,7 +13,7 @@ kubectl delete --recursive --filename .
 Write-Host "Tech talks API service deleted successfully" -ForegroundColor Cyan
 
 Write-Host "Deleting Tech Talks DB service" -ForegroundColor Yellow
-Set-Location ~/projects/AKS-learning-series/k8s/AKS/TechTalksDB
+Set-Location ~/projects/AKS-learning-series/k8s/AKS/TechTalksDB2019
 kubectl delete --recursive --filename . 
 
 Write-Host "Tech talks DB service deleted successfully" -ForegroundColor Cyan
