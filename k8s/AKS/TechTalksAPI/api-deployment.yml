@@ -26,7 +26,7 @@ spec:
           - name: SA_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: sqlsecret
+                name: sql-secrets
                 key: sapassword
           command:
             - "sh"
