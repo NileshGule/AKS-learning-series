@@ -17,17 +17,25 @@ Write-Host "Creating namespace"  -ForegroundColor Yellow
 kubectl apply --filename 00_AKS_Namespace.yml
 Write-Host "Namespace created successfully" -ForegroundColor Cyan
 
-Write-Host "Creating storage class" -ForegroundColor Yellow
-kubectl apply --filename 01_StorageClass.yml
-Write-Host "Storage class created successfully" -ForegroundColor Cyan
-
-Write-Host "Creating Persistant Volume Claim" -ForegroundColor Yellow
-kubectl apply --filename 02_PersistantVolumeClaim.yml
-Write-Host "Persistant Volume Claim created successfully" -ForegroundColor Cyan
-
 Write-Host "Deploying Tech Talks DB service" -ForegroundColor Yellow
 Set-Location ~/projects/AKS-learning-series/k8s/AKS/TechTalksDB2019
-kubectl apply --recursive --filename . 
+
+Write-Host "Deploying SQL Server Operator" -ForegroundColor Yellow
+kubectl apply --filename operator.yml 
+Write-Host "SQL Server Operator deployed successfully" -ForegroundColor Cyan
+
+Write-Host "Creating SA password" -ForegroundColor Yellow
+kubectl apply --filename 01_sa-password.yml
+Write-Host "Storage class created successfully" -ForegroundColor Cyan
+
+Write-Host "Creating masterkey password" -ForegroundColor Yellow
+kubectl apply --filename 01_masterkey-password.yml
+Write-Host "Masterkey password created successfully" -ForegroundColor Cyan
+
+Write-Host "Deploying SQL Server custome resource" -ForegroundColor Yellow
+kubectl apply --filename 04_sqlserver.yml
+Write-Host "SQL Server custome resource deployed successfully" -ForegroundColor Cyan
+
 
 Write-Host "Tech talks DB service deployed successfully" -ForegroundColor Cyan
 
