@@ -28,10 +28,6 @@ Write-Host "Creating SA password" -ForegroundColor Yellow
 kubectl apply --filename 01_sa-password.yml
 Write-Host "Storage class created successfully" -ForegroundColor Cyan
 
-Write-Host "Creating masterkey password" -ForegroundColor Yellow
-kubectl apply --filename 01_masterkey-password.yml
-Write-Host "Masterkey password created successfully" -ForegroundColor Cyan
-
 Write-Host "Deploying SQL Server custome resource" -ForegroundColor Yellow
 kubectl apply --filename 04_sqlserver.yml
 Write-Host "SQL Server custome resource deployed successfully" -ForegroundColor Cyan
