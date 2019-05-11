@@ -21,7 +21,7 @@ Write-Host "Deploying Tech Talks DB service" -ForegroundColor Yellow
 Set-Location ~/projects/AKS-learning-series/k8s/AKS/TechTalksDB2019
 
 Write-Host "Deploying SQL Server Operator" -ForegroundColor Yellow
-kubectl apply --filename operator.yml 
+kubectl apply --filename 00_operator.yml 
 Write-Host "SQL Server Operator deployed successfully" -ForegroundColor Cyan
 
 Write-Host "Creating SA password" -ForegroundColor Yellow
@@ -39,17 +39,17 @@ Write-Host "SQL Server custome resource deployed successfully" -ForegroundColor 
 
 Write-Host "Tech talks DB service deployed successfully" -ForegroundColor Cyan
 
-Write-Host "Deploying Tech Talks API service" -ForegroundColor Yellow
-Set-Location ~/projects/AKS-learning-series/k8s/AKS/TechTalksAPI
-kubectl apply --recursive --filename . 
+# Write-Host "Deploying Tech Talks API service" -ForegroundColor Yellow
+# Set-Location ~/projects/AKS-learning-series/k8s/AKS/TechTalksAPI
+# kubectl apply --recursive --filename . 
 
-Write-Host "Tech talks API service deployed successfully" -ForegroundColor Cyan
+# Write-Host "Tech talks API service deployed successfully" -ForegroundColor Cyan
 
-Write-Host "Deploying Tech Talks web frontend" -ForegroundColor Yellow
-Set-Location ~/projects/AKS-learning-series/k8s/AKS/TechTalksWeb
-kubectl apply --recursive --filename . 
+# Write-Host "Deploying Tech Talks web frontend" -ForegroundColor Yellow
+# Set-Location ~/projects/AKS-learning-series/k8s/AKS/TechTalksWeb
+# kubectl apply --recursive --filename . 
 
-Write-Host "Tech talks web frontend deployed successfully" -ForegroundColor Cyan
+# Write-Host "Tech talks web frontend deployed successfully" -ForegroundColor Cyan
 
 Write-Host "All the services related to Tech Talks application have been successfully deployed" -ForegroundColor Cyan
 
