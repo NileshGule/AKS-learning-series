@@ -18,8 +18,16 @@ GO
 SELECT Name from sys.Databases
 GO
 
+USE MASTER
+GO
+BACKUP DATABASE [TechTalksDB] 
+TO DISK = N'/var/opt/mssql/data/TechTalksDB.bak'
+
+ALTER AVAILABILITY GROUP [ag1] ADD DATABASE [TechTalksDB]
+
 USE TechTalksDB
 GO
+
 
 if not exists (select * from sysobjects where name='Categories' and xtype='U')
     BEGIN
