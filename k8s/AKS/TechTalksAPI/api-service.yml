@@ -3,7 +3,7 @@ kind: Service
 
 metadata:
   name: techtalksapi
-  namespace: techtalksns
+  # namespace: techtalksns
 spec:
   # type: NodePort
   type: LoadBalancer

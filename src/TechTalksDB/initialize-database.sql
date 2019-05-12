@@ -18,12 +18,42 @@ GO
 SELECT Name from sys.Databases
 GO
 
+-- Add Database to Availability Group only if the SQL Server Version is 2019                                                                                                                                                
 USE MASTER
 GO
-BACKUP DATABASE [TechTalksDB] 
-TO DISK = N'/var/opt/mssql/data/TechTalksDB.bak'
+ 
+DECLARE @IsSQL2019 bit
 
-ALTER AVAILABILITY GROUP [ag1] ADD DATABASE [TechTalksDB]
+SET @IsSQL2019 = CHARINDEX('SQL Server 2019',@@VERSION)
+
+IF @IsSQL2019 = 1
+
+BEGIN
+
+    BACKUP DATABASE [TechTalksDB] 
+    TO DISK = N'/var/opt/mssql/data/TechTalksDB.bak'
+
+    ALTER AVAILABILITY GROUP [ag1] ADD DATABASE [TechTalksDB]
+
+    SELECT  r.replica_server_name
+        , DB_NAME(rs.database_id) AS [DatabaseName]
+        , rs.is_local
+        , rs.is_primary_replica
+        , r.availability_mode_desc
+        , r.failover_mode_desc
+        , rs.is_commit_participant
+        , rs.synchronization_state_desc
+        , rs.synchronization_health_desc
+        , r.endpoint_url
+        , r.session_timeout
+    FROM    sys.dm_hadr_database_replica_states rs
+            JOIN sys.availability_replicas r ON r.group_id = rs.group_id
+                                                AND r.replica_id = rs.replica_id
+    ORDER BY r.replica_server_name;
+    
+END
+
+GO
 
 USE TechTalksDB
 GO

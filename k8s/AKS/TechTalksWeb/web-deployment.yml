@@ -3,7 +3,7 @@ kind: Deployment
 
 metadata:
   name: techtalksweb
-  namespace: techtalksns
+  # namespace: techtalksns
   labels:
     run: webfront
 
