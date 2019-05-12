@@ -49,9 +49,9 @@ kubectl apply `
 Write-Host "SQL Server custom resource deployed successfully" -ForegroundColor Cyan
 
 Write-Host "Deploying SQL Server Availability Group" -ForegroundColor Yellow
-# kubectl apply --filename 04_sqlserver.yml
+
 kubectl apply `
---filename 04_agservices.yml `
+--filename 05-agservices.yml `
 --namespace $NamespaceName
 
 Write-Host "SQL Server Availability Group deployed successfully" -ForegroundColor Cyan
