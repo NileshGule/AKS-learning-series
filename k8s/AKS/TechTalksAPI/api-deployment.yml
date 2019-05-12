@@ -18,20 +18,21 @@ spec:
       labels:
         run: techtalksapi
     spec:
-      # initContainers:
-      #   - name: init-myservice
-      #     image: nileshgule/sqlclient
-      #     imagePullPolicy: IfNotPresent
-      #     env:
-      #     - name: SA_PASSWORD
-      #       valueFrom:
-      #         secretKeyRef:
-      #           name: sql-secrets
-      #           key: sapassword
-      #     command:
-      #       - "sh"
-      #       - "-c"
-      #       - "/opt/mssql-tools/bin/sqlcmd -S db-deployment -U sa -P $(SA_PASSWORD) -d master -i initialize-database.sql"
+      initContainers:
+        - name: init-myservice
+          image: nileshgule/sqlclient
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: SA_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: sql-secrets
+                key: sapassword
+          command:
+            - "sh"
+            - "-c"
+            # - "/opt/mssql-tools/bin/sqlcmd -S db-deployment -U sa -P $(SA_PASSWORD) -d master -i initialize-database.sql"
+            - "/opt/mssql-tools/bin/sqlcmd -S 13.67.50.217  -U sa -P P@ssw0rd! -d master -i initialize-database.sql"
       containers:
       - name: techtalksapi
         image: nileshgule/techtalksapi
@@ -47,7 +48,7 @@ spec:
           - name: ConnectionStrings__DefaultConnection
             # value: "Data Source=db-deployment;Initial Catalog=TechTalksDB;User Id=SA;Password=$(SA_PASSWORD);MultipleActiveResultSets=True" 
             # value: "Data Source=ag-primary;Initial Catalog=TechTalksDB;User Id=SA;Password=$(SA_PASSWORD);MultipleActiveResultSets=True" 
-            value: "Data Source=104.215.150.26;Initial Catalog=TechTalksDB;User Id=SA;Password=P@ssw0rd!;MultipleActiveResultSets=True" 
+            value: "Data Source=13.67.50.217;Initial Catalog=TechTalksDB;User Id=SA;Password=P@ssw0rd!;MultipleActiveResultSets=True" 
         ports:
         - containerPort: 8080
           protocol: TCP
