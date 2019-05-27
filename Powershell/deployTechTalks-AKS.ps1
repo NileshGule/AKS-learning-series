@@ -1,22 +1,18 @@
 Param(
-    [parameter(Mandatory=$false)]
-    [bool]$ProvisionAKSCluster=$false,
-    [parameter(Mandatory=$false)]
-    [string]$NamespaceName="ag1"
+    [parameter(Mandatory = $false)]
+    [bool]$ProvisionAKSCluster = $false,
+    [parameter(Mandatory = $false)]
+    [string]$NamespaceName = "ag1"
 )
 
 
-if($ProvisionAKSCluster)
-{
+if ($ProvisionAKSCluster) {
     Write-Host "Provisioning AKS cluster with default parameters" -ForegroundColor Cyan
-    & ((Split-Path $MyInvocation.InvocationName) + "\initializeAKS.ps1") 
+    & ((Split-Path $MyInvocation.InvocationName) + "\initializeAKS.ps1")
 }
 
-$currentWorkingDirectory = (Get-Location).Path | Split-Path -Parent
-$aksRootDirectory = Join-Path $currentWorkingDirectory "k8s/AKS"
-$techTalksDB2019RootDirectory = Join-Path $aksRootDirectory "TechTalksDB2019"
-$techTalksAPIRootDirectory = Join-Path $aksRootDirectory "TechTalksAPI"
-$techTalksWebRootDirectory = Join-Path $aksRootDirectory "TechTalksWeb"
+# source common variables
+. .\var.ps1
 
 Write-Host "Starting deployment of TechTalks application and services" -ForegroundColor Yellow
 
@@ -32,34 +28,34 @@ Set-Location $techTalksDB2019RootDirectory
 Write-Host "Deploying SQL Server Operator" -ForegroundColor Yellow
 
 kubectl apply `
---filename operator.yml `
---namespace $NamespaceName
+    --filename operator.yml `
+    --namespace $NamespaceName
 
 Write-Host "SQL Server Operator deployed successfully" -ForegroundColor Cyan
 
 Write-Host "Creating SA password" -ForegroundColor Yellow
 
 kubectl create `
-secret generic sql-secrets `
---from-literal=sapassword="P@ssw0rd!" `
---from-literal=masterkeypassword="P@ssw0rd!"  `
---namespace $NamespaceName
+    secret generic sql-secrets `
+    --from-literal=sapassword="P@ssw0rd!" `
+    --from-literal=masterkeypassword="P@ssw0rd!"  `
+    --namespace $NamespaceName
 
 # Write-Host "Storage class created successfully" -ForegroundColor Cyan
 
 Write-Host "Deploying SQL Server custom resource" -ForegroundColor Yellow
 
 kubectl apply `
---filename sqlserver.yml `
---namespace $NamespaceName
+    --filename sqlserver.yml `
+    --namespace $NamespaceName
 
 Write-Host "SQL Server custom resource deployed successfully" -ForegroundColor Cyan
 
 Write-Host "Deploying SQL Server Availability Group" -ForegroundColor Yellow
 
 kubectl apply `
---filename ag-services.yml `
---namespace $NamespaceName
+    --filename ag-services.yml `
+    --namespace $NamespaceName
 
 Write-Host "SQL Server Availability Group deployed successfully" -ForegroundColor Cyan
 
@@ -73,7 +69,7 @@ Write-Host "Deploying Tech Talks API service" -ForegroundColor Yellow
 # kubectl apply `
 # --recursive `
 # --filename . `
-# --namespace $NamespaceName 
+# --namespace $NamespaceName
 
 Write-Host "Tech talks API service deployed successfully" -ForegroundColor Cyan
 
@@ -81,9 +77,9 @@ Write-Host "Deploying Tech Talks web frontend" -ForegroundColor Yellow
 Set-Location $techTalksWebRootDirectory
 
 kubectl apply `
---recursive `
---filename . `
---namespace $NamespaceName
+    --recursive `
+    --filename . `
+    --namespace $NamespaceName
 
 Write-Host "Tech talks web frontend deployed successfully" -ForegroundColor Cyan
 
