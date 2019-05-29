@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: db-deployment
-  namespace: aks-part4
+  # namespace: aks-part4
 spec:
   selector:
     app: db
