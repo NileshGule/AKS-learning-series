@@ -12,7 +12,7 @@ spec:
   selector:
     matchLabels:
       run: techtalksapi
-  
+
   template:
     metadata:
       labels:
@@ -31,8 +31,8 @@ spec:
           command:
             - "sh"
             - "-c"
-            # - "/opt/mssql-tools/bin/sqlcmd -S db-deployment -U sa -P $(SA_PASSWORD) -d master -i initialize-database.sql"
-            - "/opt/mssql-tools/bin/sqlcmd -S 104.215.193.33  -U sa -P P@ssw0rd! -d master -i initialize-database.sql"
+            - "/opt/mssql-tools/bin/sqlcmd -S db-deployment -U sa -P $(SA_PASSWORD) -d master -i initialize-database.sql"
+            # - "/opt/mssql-tools/bin/sqlcmd -S 13.67.66.95 -U sa -P P@ssw0rd! -d master -i initialize-database.sql"
       containers:
       - name: techtalksapi
         image: nileshgule/techtalksapi
@@ -46,11 +46,11 @@ spec:
                 name: sql-secrets
                 key: sapassword
           - name: ConnectionStrings__DefaultConnection
-            value: "Data Source=104.215.193.33;Initial Catalog=TechTalksDB;User Id=SA;Password=P@ssw0rd!;MultipleActiveResultSets=True" 
+            value: "Data Source=db-deployment;Initial Catalog=TechTalksDB;User Id=SA;Password=P@ssw0rd!;MultipleActiveResultSets=True"
         ports:
         - containerPort: 8080
           protocol: TCP
-        
+
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst

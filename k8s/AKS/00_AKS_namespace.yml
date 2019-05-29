@@ -3,4 +3,4 @@ apiVersion: v1
 kind: Namespace
 metadata:
   # name: techtalksns
-  name: ag1
+  name: default

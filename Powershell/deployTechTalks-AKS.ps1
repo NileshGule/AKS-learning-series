@@ -2,7 +2,7 @@ Param(
     [parameter(Mandatory = $false)]
     [bool]$ProvisionAKSCluster = $false,
     [parameter(Mandatory = $false)]
-    [string]$NamespaceName = "ag1"
+    [string]$NamespaceName = "default"
 )
 
 
@@ -18,9 +18,9 @@ Write-Host "Starting deployment of TechTalks application and services" -Foregrou
 
 Set-Location $aksRootDirectory
 
-Write-Host "Creating namespace"  -ForegroundColor Yellow
-kubectl apply --filename 00_AKS_Namespace.yml
-Write-Host "Namespace created successfully" -ForegroundColor Cyan
+# Write-Host "Creating namespace"  -ForegroundColor Yellow
+# kubectl apply --filename 00_AKS_Namespace.yml
+# Write-Host "Namespace created successfully" -ForegroundColor Cyan
 
 Write-Host "Deploying Tech Talks DB service" -ForegroundColor Yellow
 Set-Location $techTalksDB2019RootDirectory
