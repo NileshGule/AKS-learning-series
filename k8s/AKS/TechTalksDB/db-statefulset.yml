@@ -3,7 +3,7 @@ apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
   name: db-deployment
-  namespace: aks-part4
+  # namespace: aks-part4
 spec:
   serviceName: db-deployment
   replicas: 1
@@ -13,7 +13,7 @@ spec:
         app: db
     spec:
       terminationGracePeriodSeconds: 10
-      
+
       containers:
       - name: sql2017
         image: microsoft/mssql-server-linux

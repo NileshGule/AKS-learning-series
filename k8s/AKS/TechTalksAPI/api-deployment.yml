@@ -3,7 +3,7 @@ kind: Deployment
 
 metadata:
   name: techtalksapi
-  namespace: aks-part4
+  # namespace: aks-part4
   labels:
     run: techtalksapi
 
@@ -12,7 +12,7 @@ spec:
   selector:
     matchLabels:
       run: techtalksapi
-  
+
   template:
     metadata:
       labels:
@@ -45,11 +45,11 @@ spec:
                 name: sqlsecret
                 key: sapassword
           - name: ConnectionStrings__DefaultConnection
-            value: "Data Source=db-deployment;Initial Catalog=TechTalksDB;User Id=SA;Password=$(SA_PASSWORD);MultipleActiveResultSets=True" 
+            value: "Data Source=db-deployment;Initial Catalog=TechTalksDB;User Id=SA;Password=$(SA_PASSWORD);MultipleActiveResultSets=True"
         ports:
         - containerPort: 8080
           protocol: TCP
-        
+
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst

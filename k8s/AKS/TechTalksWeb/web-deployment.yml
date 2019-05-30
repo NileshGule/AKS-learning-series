@@ -3,7 +3,7 @@ kind: Deployment
 
 metadata:
   name: techtalksweb
-  namespace: aks-part4
+  # namespace: aks-part4
   labels:
     run: webfront
 
@@ -12,7 +12,7 @@ spec:
   selector:
     matchLabels:
       run: webfront-deployment
-  
+
   template:
     metadata:
       labels:
@@ -25,11 +25,11 @@ spec:
         - name: ASPNETCORE_ENVIRONMENT
           value: "Development"
         - name: TechTalksAPIUrl
-          value: "http://techtalksapi:8080/api/techtalks/" 
+          value: "http://techtalksapi:8080/api/techtalks/"
         ports:
         - containerPort: 80
           protocol: TCP
-        imagePullPolicy: Always   
+        imagePullPolicy: Always
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst

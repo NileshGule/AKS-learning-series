@@ -3,7 +3,7 @@ kind: Service
 
 metadata:
   name: techtalksapi
-  namespace: aks-part4
+  # namespace: aks-part4
 spec:
   # type: NodePort
   type: LoadBalancer
