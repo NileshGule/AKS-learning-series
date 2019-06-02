@@ -2,7 +2,7 @@ Param(
     [parameter(Mandatory = $false)]
     [bool]$ProvisionAKSCluster = $false,
     [parameter(Mandatory = $false)]
-    [string]$NamespaceName = "default"
+    [string]$NamespaceName = "ag1"
 )
 
 
@@ -37,8 +37,8 @@ Write-Host "Creating SA password" -ForegroundColor Yellow
 
 kubectl create `
     secret generic sql-secrets `
-    --from-literal=sapassword="P@ssw0rd!" `
-    --from-literal=masterkeypassword="P@ssw0rd!"  `
+    --from-literal=sapassword="June@2019!" `
+    --from-literal=masterkeypassword="June@2019!"  `
     --namespace $NamespaceName
 
 # Write-Host "Storage class created successfully" -ForegroundColor Cyan
