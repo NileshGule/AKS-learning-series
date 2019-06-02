@@ -1,6 +1,6 @@
 Param(
     [parameter(Mandatory = $false)]
-    [string]$NamespaceName = "default"
+    [string]$NamespaceName = "ag1"
 )
 
 # source common variables
