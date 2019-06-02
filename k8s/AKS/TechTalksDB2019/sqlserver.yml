@@ -3,8 +3,8 @@ kind: SqlServer
 metadata:
   labels: {name: mssql1, type: sqlservr}
   name: mssql1
-  # namespace: ag1
-  namespace: default
+  namespace: ag1
+  # namespace: default
 spec:
   acceptEula: true
   agentsContainerImage: mcr.microsoft.com/mssql/ha:2019-CTP2.2-ubuntu
@@ -20,8 +20,8 @@ spec:
 ---
 apiVersion: v1
 kind: Service
-# metadata: {name: mssql1, namespace: ag1}
-metadata: {name: mssql1, namespace: default}
+metadata: {name: mssql1, namespace: ag1}
+# metadata: {name: mssql1, namespace: default}
 spec:
   ports:
   - {name: tds, port: 1433}
@@ -33,8 +33,8 @@ kind: SqlServer
 metadata:
   labels: {name: mssql2, type: sqlservr}
   name: mssql2
-  # namespace: ag1
-  namespace: default
+  namespace: ag1
+  # namespace: default
 spec:
   acceptEula: true
   agentsContainerImage: mcr.microsoft.com/mssql/ha:2019-CTP2.2-ubuntu
@@ -50,8 +50,8 @@ spec:
 ---
 apiVersion: v1
 kind: Service
-# metadata: {name: mssql2, namespace: ag1}
-metadata: {name: mssql2, namespace: default}
+metadata: {name: mssql2, namespace: ag1}
+# metadata: {name: mssql2, namespace: default}
 spec:
   ports:
   - {name: tds, port: 1433}
@@ -63,8 +63,8 @@ kind: SqlServer
 metadata:
   labels: {name: mssql3, type: sqlservr}
   name: mssql3
-  # namespace: ag1
-  namespace: default
+  namespace: ag1
+  # namespace: default
 spec:
   acceptEula: true
   agentsContainerImage: mcr.microsoft.com/mssql/ha:2019-CTP2.2-ubuntu
@@ -80,8 +80,8 @@ spec:
 ---
 apiVersion: v1
 kind: Service
-# metadata: {name: mssql3, namespace: ag1}
-metadata: {name: mssql3, namespace: default}
+metadata: {name: mssql3, namespace: ag1}
+# metadata: {name: mssql3, namespace: default}
 spec:
   ports:
   - {name: tds, port: 1433}
