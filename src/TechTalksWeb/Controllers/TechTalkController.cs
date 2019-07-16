@@ -21,7 +21,8 @@ namespace TechTalksWeb.Controllers
 
         public TechTalkController(IConfiguration config)
         {
-            API_BASE_URL = config.GetValue<string>("TechTalksAPIUrl");
+            // API_BASE_URL = config.GetValue<string>("TechTalksAPIUrl");
+            API_BASE_URL = "http://techtalks.api:8080/api/techtalks";
 
             Console.WriteLine($"API base URL : {API_BASE_URL}");
         }
@@ -32,7 +33,11 @@ namespace TechTalksWeb.Controllers
             try
             {
                 var client = new WebClient();
+
+                Console.WriteLine($" API BASE URL = {API_BASE_URL}");
+
                 var response = client.DownloadString(API_BASE_URL);
+
                 Console.WriteLine($"Data returned from API call : {response}");
 
                 techTalks.AddRange(JsonConvert.DeserializeObject<List<TechTalkDTO>>(response));
