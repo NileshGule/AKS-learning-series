@@ -14,6 +14,7 @@ RUN dotnet publish --configuration Release --output releaseOutput --no-restore
 
 #build runtime image
 FROM microsoft/dotnet:2.1.0-aspnetcore-runtime
+ENV ASPNETCORE_URLS http://+:8080
 
 WORKDIR /TechTalksAPI
 

@@ -6,7 +6,8 @@ metadata:
   # namespace: aks-part4
 spec:
   # type: NodePort
-  type: LoadBalancer
+  # type: LoadBalancer
+  type: ClusterIP
   ports:
   - port: 8080
   selector:

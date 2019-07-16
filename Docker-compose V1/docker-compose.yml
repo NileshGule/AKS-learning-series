@@ -14,21 +14,23 @@ services:
       - "1433:1433"
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=June2018
+      - SA_PASSWORD=August@2019
     tty: true
-    
+
   techtalks.web:
     image: nileshgule/techtalksweb
     build:
       context: ../src/TechTalksWeb
       dockerfile: Dockerfile
-    depends_on: 
+    depends_on:
       - techtalks.api
     ports:
       - "80:80"
     environment:
-      - TechTalksAPIUrl="http://techtalksapi:8080/api/techtalks/"
-      
+      # - TechTalksAPIUrl="http://techtalksapi:8080/api/techtalks/"
+      - TechTalksAPIUrl="http://techtalks.api:8080/api/techtalks"
+
+
   techtalks.api:
     image: nileshgule/techtalksapi
     build:
@@ -38,5 +40,8 @@ services:
       - sql.data
     ports:
       - "8080:80"
+      # - "8081:80"
     environment:
-      - ConnectionStrings__DefaultConnection=Data Source=sql.data,1433;Initial Catalog=TechTalksDB;User Id=SA;Password=June2018;MultipleActiveResultSets=True;
+      # - ConnectionStrings__DefaultConnection=Data Source=sql.data,1433;Initial Catalog=TechTalksDB;User Id=SA;Password=August@2019;MultipleActiveResultSets=True;
+      - ConnectionStrings__DefaultConnection=Data Source=192.168.56.129,1433;Initial Catalog=TechTalksDB;User Id=SA;Password=August@2019;MultipleActiveResultSets=True;
+      #Note: replace your IP address when working with Docker on Windows and rebuild the docker images using command docker-compose build

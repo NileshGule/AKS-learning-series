@@ -23,7 +23,7 @@ namespace TechTalksAPI
             services.AddMvc()
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            
+
             services.AddDbContext<TechTalksDBContext>
             (
                 options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
@@ -44,7 +44,7 @@ namespace TechTalksAPI
 
             app.UseHttpsRedirection();
             app.UseMvc();
-        
+
         }
     }
 }
