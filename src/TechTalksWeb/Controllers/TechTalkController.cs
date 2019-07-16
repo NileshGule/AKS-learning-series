@@ -21,8 +21,8 @@ namespace TechTalksWeb.Controllers
 
         public TechTalkController(IConfiguration config)
         {
-            // API_BASE_URL = config.GetValue<string>("TechTalksAPIUrl");
-            API_BASE_URL = "http://techtalks.api:8081/api/techtalks";
+            API_BASE_URL = config.GetValue<string>("TechTalksAPIUrl");
+            // API_BASE_URL = "http://techtalks.api:8081/api/techtalks";
 
             Console.WriteLine($"API base URL : {API_BASE_URL}");
         }

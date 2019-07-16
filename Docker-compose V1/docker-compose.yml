@@ -27,8 +27,8 @@ services:
     ports:
       - "80:80"
     environment:
-      # - TechTalksAPIUrl="http://techtalksapi:8080/api/techtalks/"
-      - TechTalksAPIUrl="http://techtalks.api:8081/api/techtalks"
+      - TechTalksAPIUrl="http://techtalksapi:8080/api/techtalks/"
+      # - TechTalksAPIUrl="http://techtalks.api:8081/api/techtalks"
 
 
   techtalks.api:
@@ -39,9 +39,9 @@ services:
     depends_on:
       - sql.data
     ports:
-      # - "8080:80"
-      - "8081:80"
+      - "8080:80"
+      # - "8081:80"
     environment:
-      # - ConnectionStrings__DefaultConnection=Data Source=sql.data,1433;Initial Catalog=TechTalksDB;User Id=SA;Password=August@2019;MultipleActiveResultSets=True;
-      - ConnectionStrings__DefaultConnection=Data Source=192.168.56.129,1433;Initial Catalog=TechTalksDB;User Id=SA;Password=August@2019;MultipleActiveResultSets=True;
+      - ConnectionStrings__DefaultConnection=Data Source=sql.data,1433;Initial Catalog=TechTalksDB;User Id=SA;Password=August@2019;MultipleActiveResultSets=True;
+      # - ConnectionStrings__DefaultConnection=Data Source=192.168.56.129,1433;Initial Catalog=TechTalksDB;User Id=SA;Password=August@2019;MultipleActiveResultSets=True;
       #Note: replace your IP address when working with Docker on Windows and rebuild the docker images using command docker-compose build
