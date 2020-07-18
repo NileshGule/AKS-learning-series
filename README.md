@@ -1,6 +1,6 @@
 # Azure Kubernetes Service (AKS) Learning Series
 
-Demo code for Hands on Series for `Azure kubernetes Series (AKS) learning series`. The series is delivered as part of Azure Learning Series for the Microsoft Azure user group in Singapore. The objective of this series is to learn about containerizing multi-container application using Docker. The multi-container application is then deployed to a managed Kubernetes cluster using Azure Kubernetes Service.
+Demo code for Hands on Series for `Azure kubernetes Series (AKS) learning series`. The series is delivered as part of Azure Learning Series for the Microsoft Azure user group in Singapore. The objective of this series is to learn about containerizing multi-container application using Docker. The multi-container application is then deployed to a managed Kubernetes cluster using Azure Kubernetes Service (AKS).
 
 ## Application Overview
 
