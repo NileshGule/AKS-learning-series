@@ -56,5 +56,70 @@ docker run `
 -p 1444:1433 `
 -d mcr.microsoft.com/mssql/server:2019-CU8-ubuntu-18.04
 
+```
+
+### Build docker image
+
+```
+
+docker build . -t nileshgule/techtalksweb
+
+```
+
+### Build multiple images using Docker compose
+
+```
+
+docker-compose -f docker-compose.yml -f docker-compose-build.yml build
+
+docker-compose -f docker-compose.yml -f docker-compose-run.yml up
+
+docker-compose -f docker-compose.yml -f docker-compose-build.yml down
+
+```
+
+## Docker ACI integration
+
+```
+
+docker --context acicontext run -p 80:80 nginx
+
+docker --context acicontext `
+run `
+--name techtalksweb `
+-e 'ASPNETCORE_ENVIRONMENT=Development' `
+-e 'TechTalksAPIUrl=http://techtalksapi:8080/api/techtalks/' `
+-p 80:80 ngacrregistry.azurecr.io/nileshgule/techtalksweb
+
+```
+
+## Build Containers using ACR
+
+```
+
+az acr build --image nileshgule/techtalksweb `
+  --registry ngacrregistry `
+  --file Dockerfile .
+
+```
+
+## Docker ACI container
+
+```
+docker context --help
+
+docker context list
+
+
+$acrUserPassword = az acr credential show `
+    --name ngacrregistry `
+    --query "passwords[0].value"
+
+az container create `
+    --name aci-demo `
+    --resource-group aci-resource-group `
+    --image ngacrregistry.azurecr.io/nileshgule/techtalksweb `
+	--dns-name-label aci-demo-techtalksweb `
+    --query ipAddress.fqdn
 
 ```
