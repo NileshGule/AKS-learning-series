@@ -1,9 +1,9 @@
 ---
 kind: StorageClass
-apiVersion: storage.k8s.io/v1beta1
+apiVersion: storage.k8s.io/v1
 metadata:
    name: azure-disk
-   namespace: aks-part4
+   # namespace: aks-part4
 provisioner: kubernetes.io/azure-disk
 parameters:
   storageaccounttype: Standard_LRS

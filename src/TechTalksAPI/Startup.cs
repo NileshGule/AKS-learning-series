@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using TechTalksAPI.Model;
 
+using Microsoft.Extensions.Hosting;
+
 namespace TechTalksAPI
 {
     public class Startup
@@ -20,9 +22,12 @@ namespace TechTalksAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc()
-            .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            // services.AddMvc()
+            // .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            services.AddControllers();
+
+            // services.AddHttpsRedirection(opt => opt.HttpsPort = 443);
 
             services.AddDbContext<TechTalksDBContext>
             (
@@ -31,7 +36,7 @@ namespace TechTalksAPI
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -42,8 +47,17 @@ namespace TechTalksAPI
                 app.UseHsts();
             }
 
+            // app.UseHttpsRedirection();
+            // app.UseMvc();
+
             app.UseHttpsRedirection();
-            app.UseMvc();
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
 
         }
     }

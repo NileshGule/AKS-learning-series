@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 
 metadata:
@@ -20,7 +20,7 @@ spec:
     spec:
       initContainers:
         - name: init-myservice
-          image: nileshgule/sqlclient
+          image: ngacrregistry.azurecr.io/nileshgule/sqlclient
           imagePullPolicy: IfNotPresent
           env:
           - name: SA_PASSWORD
@@ -34,12 +34,13 @@ spec:
             - "/opt/mssql-tools/bin/sqlcmd -S db-deployment -U sa -P $(SA_PASSWORD) -d master -i initialize-database.sql"
       containers:
       - name: techtalksapi
-        image: nileshgule/techtalksapi
+        image: ngacrregistry.azurecr.io/nileshgule/techtalksapi
         imagePullPolicy: IfNotPresent
         env:
           - name: ASPNETCORE_URLS
             value: http://0.0.0.0:8080
           - name: SA_PASSWORD
+            # value: June@2018
             valueFrom:
               secretKeyRef:
                 name: sqlsecret

@@ -2,10 +2,10 @@ version: '3'
 
 services:
   sql.data.client:
-    image: nileshgule/sqlclient
+    image: ngacrregistry.azurecr.io/nileshgule/sqlclient
       
   techtalks.web:
-    image: nileshgule/techtalksweb
+    image: ngacrregistry.azurecr.io/nileshgule/techtalksweb
       
   techtalks.api:
-    image: nileshgule/techtalksapi
+    image: ngacrregistry.azurecr.io/nileshgule/techtalksapi

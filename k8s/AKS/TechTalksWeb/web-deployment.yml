@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 
 metadata:
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: techtalksweb
-        image: nileshgule/techtalksweb
+        image: ngacrregistry.azurecr.io/nileshgule/techtalksweb
         env:
         - name: ASPNETCORE_ENVIRONMENT
           value: "Development"
