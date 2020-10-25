@@ -64,6 +64,8 @@ docker run `
 
 docker build . -t nileshgule/techtalksweb
 
+docker run --name techtalksweb nileshgule/techtalksweb --memory="750m"
+
 ```
 
 ### Build multiple images using Docker compose
@@ -81,6 +83,13 @@ docker-compose -f docker-compose.yml -f docker-compose-build.yml down
 ## Docker ACI integration
 
 ```
+docker login azure
+
+docker context --help
+
+docker context list
+
+docker context create aci acicontext
 
 docker --context acicontext run -p 80:80 nginx
 
@@ -103,13 +112,9 @@ az acr build --image nileshgule/techtalksweb `
 
 ```
 
-## Docker ACI container
+## ACI image deployment using Az CLI
 
 ```
-docker context --help
-
-docker context list
-
 
 $acrUserPassword = az acr credential show `
     --name ngacrregistry `
