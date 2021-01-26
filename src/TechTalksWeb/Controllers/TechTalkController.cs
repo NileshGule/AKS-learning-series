@@ -11,7 +11,8 @@ using TechTalksWeb.Models;
 using TechTalksModel.DTO;
 using TechTalksWeb.ViewModels;
 using Microsoft.Extensions.Configuration;
-
+using System.Threading.Tasks;
+using System.IO;
 
 namespace TechTalksWeb.Controllers
 {
@@ -26,7 +27,7 @@ namespace TechTalksWeb.Controllers
 
             Console.WriteLine($"API base URL : {API_BASE_URL}");
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             List<TechTalkDTO> techTalks = new List<TechTalkDTO>();
 
@@ -34,15 +35,22 @@ namespace TechTalksWeb.Controllers
             {
                 var client = new WebClient();
 
-                Console.WriteLine($" API BASE URL = {API_BASE_URL}");
+                Console.WriteLine($"Requesting techtalks from API using API BASE URL = {API_BASE_URL}");
 
-                var response = client.DownloadString(API_BASE_URL);
+                using (var httpClient = new HttpClient())
+                {
+                    using (var response = await httpClient.GetAsync(API_BASE_URL))
+                    {
+                        string apiResponse = await response.Content.ReadAsStringAsync();
 
-                Console.WriteLine($"Data returned from API call : {response}");
+                        Console.WriteLine($"Data returned from API call : {apiResponse}");
 
-                techTalks.AddRange(JsonConvert.DeserializeObject<List<TechTalkDTO>>(response));
+                        techTalks.AddRange(JsonConvert.DeserializeObject<List<TechTalkDTO>>(apiResponse));
+                    }
+                }
 
                 Console.WriteLine($"Number of records in collection : {techTalks.Count()}");
+
             }
             catch (Exception ex)
             {
@@ -100,7 +108,7 @@ namespace TechTalksWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create([FromForm]TechTalkViewModel viewModel)
+        public IActionResult Create([FromForm] TechTalkViewModel viewModel)
         {
             Console.WriteLine($"Talk name : {viewModel.TechTalkName}");
             Console.WriteLine($"Category ID : {viewModel.CategoryId}");

@@ -66,6 +66,8 @@ docker build . -t nileshgule/techtalksweb
 
 docker run --name techtalksweb nileshgule/techtalksweb --memory="750m"
 
+docker run --name techtalksweb nileshgule/techtalksweb:v2 --memory="750m"
+
 ```
 
 ### Build multiple images using Docker compose
