@@ -17,7 +17,7 @@ services:
       
   techtalks.api:
     ports:
-      - "8080:80"
+      - "8080:8080"
     environment:
       - ConnectionStrings__DefaultConnection=Data Source=sql.data,1433;Initial Catalog=TechTalksDB;User Id=SA;Password=June2018;MultipleActiveResultSets=True;
     depends_on: 

@@ -50,7 +50,7 @@ namespace TechTalksAPI
             // app.UseHttpsRedirection();
             // app.UseMvc();
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseRouting();
 
